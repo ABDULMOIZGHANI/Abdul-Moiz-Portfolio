@@ -46,7 +46,16 @@ export function VideoForm({ v }: { v?: Video | null }) {
         <div className="field"><label htmlFor="category">Category</label><input id="category" name="category" className="input" defaultValue={v?.category} placeholder="e.g. Product ad" /></div>
         <div className="field"><label htmlFor="order">Order</label><input id="order" name="order" className="input" type="number" defaultValue={v?.order ?? 0} /></div>
       </div>
-      <div className="field"><label htmlFor="driveId">Google Drive link or file ID</label><input id="driveId" name="driveId" className="input" required defaultValue={v?.driveId} placeholder="https://drive.google.com/file/d/…/view" /><p className="hint">Share the file as “Anyone with the link can view”.</p></div>
+      <div className="field"><label htmlFor="driveId">Google Drive link or file ID</label><input id="driveId" name="driveId" className="input" defaultValue={v?.driveId} placeholder="https://drive.google.com/file/d/…/view" /><p className="hint">Share the file as “Anyone with the link can view”. Leave empty if you use a video file below.</p></div>
+      <div className="two">
+        <div className="field"><label htmlFor="src">Video file URL (optional)</label><input id="src" name="src" className="input" defaultValue={v?.src} placeholder="/videos/name.mp4" /><p className="hint">Self-hosted file in <code>public/videos</code> — used instead of Drive.</p></div>
+        <div className="field"><label htmlFor="poster">Poster image URL (optional)</label><input id="poster" name="poster" className="input" defaultValue={v?.poster} placeholder="/videos/name.jpg" /></div>
+      </div>
+      <div className="two">
+        <div className="field"><label htmlFor="duration">Duration (optional)</label><input id="duration" name="duration" className="input" defaultValue={v?.duration} placeholder="PT55S = 55 seconds, PT1M30S = 1:30" /></div>
+        <div className="field"><label htmlFor="uploadDate">Published date (optional)</label><input id="uploadDate" name="uploadDate" type="date" className="input" defaultValue={v?.uploadDate} /></div>
+      </div>
+      <div className="checks"><label><input type="checkbox" name="featured" defaultChecked={v?.featured} />Feature at the top of the video page</label></div>
       <div className="field"><label htmlFor="description">Description</label><textarea id="description" name="description" className="input" style={{ minHeight: 80 }} defaultValue={v?.description} /></div>
       <div className="checks"><button className="btn pri" type="submit">Save video</button><Link className="btn" href="/admin">Cancel</Link></div>
     </form>

@@ -19,11 +19,12 @@ const Project = mongoose.model("Project", new mongoose.Schema({
   image: String, url: String, description: String, content: String, order: Number, published: Boolean,
 }, { timestamps: true }));
 const Video = mongoose.model("Video", new mongoose.Schema({
-  group: String, title: String, category: String, driveId: String, description: String, order: Number,
+  group: String, title: String, category: String, driveId: String, src: String, poster: String,
+  featured: Boolean, duration: String, uploadDate: String, description: String, order: Number,
 }, { timestamps: true }));
 
 await mongoose.connect(uri, { serverSelectionTimeoutMS: 10000 });
 for (const p of projects) await Project.updateOne({ slug: p.slug }, { $setOnInsert: p }, { upsert: true });
-for (const v of videos) await Video.updateOne({ driveId: v.driveId }, { $setOnInsert: v }, { upsert: true });
+for (const v of videos) await Video.updateOne(v.src ? { src: v.src } : { driveId: v.driveId }, { $setOnInsert: v }, { upsert: true });
 console.log(`Seeded ${projects.length} projects and ${videos.length} videos (existing entries left untouched).`);
 await mongoose.disconnect();

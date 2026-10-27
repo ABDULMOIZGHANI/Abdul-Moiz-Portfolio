@@ -91,11 +91,18 @@ export async function saveVideo(form: FormData) {
     group: VIDEO_GROUPS.includes(group) ? group : "AI video",
     title: str(form, "title"),
     category: str(form, "category"),
-    driveId: driveId(str(form, "driveId")),
+    driveId: str(form, "driveId") ? driveId(str(form, "driveId")) : "",
+    src: str(form, "src"),
+    poster: str(form, "poster"),
+    featured: form.get("featured") === "on",
+    duration: str(form, "duration"),
+    uploadDate: str(form, "uploadDate"),
     description: str(form, "description"),
     order: Number(str(form, "order")) || 0,
   };
-  if (!data.title || !data.driveId) throw new Error("Title and Drive link are required");
+  if (!data.title || (!data.driveId && !data.src)) throw new Error("Title and a Drive link or video file URL are required");
+  // Only one featured film at a time.
+  if (data.featured) await VideoModel.updateMany(id ? { _id: { $ne: id } } : {}, { featured: false });
   if (id) await VideoModel.findByIdAndUpdate(id, data, { runValidators: true });
   else await VideoModel.create(data);
   refresh();

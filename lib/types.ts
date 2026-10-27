@@ -21,7 +21,16 @@ export type Video = {
   group: VideoGroup;
   title: string;
   category: string;
+  /** Google Drive file id — used when the video lives on Drive. */
   driveId: string;
+  /** Self-hosted file, e.g. /videos/name.mp4 — used instead of Drive when set. */
+  src?: string;
+  poster?: string;
+  /** Shown large at the top of the video page. */
+  featured?: boolean;
+  /** ISO 8601 duration (e.g. PT55S) and publish date, for Google's video results. */
+  duration?: string;
+  uploadDate?: string;
   description: string;
   order: number;
 };

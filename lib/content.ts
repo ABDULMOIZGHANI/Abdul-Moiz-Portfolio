@@ -30,11 +30,16 @@ const toProject = (d: any, i = 0): Project => ({
 });
 
 const toVideo = (d: any, i = 0): Video => ({
-  id: String(d._id ?? d.driveId),
+  id: String(d._id ?? (d.driveId || d.src)),
   group: d.group as VideoGroup,
   title: d.title,
   category: d.category ?? "",
-  driveId: d.driveId,
+  driveId: d.driveId ?? "",
+  src: d.src || undefined,
+  poster: d.poster || undefined,
+  featured: Boolean(d.featured),
+  duration: d.duration || undefined,
+  uploadDate: d.uploadDate || undefined,
   description: d.description ?? "",
   order: d.order ?? i,
 });

@@ -3,7 +3,7 @@ import { getProjects, getVideos, site, siteUrl } from "@/lib/content";
 import { VIDEO_GROUPS } from "@/lib/types";
 import SiteShell from "@/components/SiteShell";
 import Frame from "@/components/Frame";
-import VideoGrid from "@/components/VideoSection";
+import VideoGrid, { Player } from "@/components/VideoSection";
 import { driveEmbed, thumbPath } from "@/lib/video";
 import { CtaFrame } from "@/components/sections";
 
@@ -28,9 +28,17 @@ const groupInfo: Record<string, { id: string; h: string; d: string }> = {
 
 export default async function VideoPage() {
   const [projects, videos] = await Promise.all([getProjects(), getVideos()]);
-  const groups = VIDEO_GROUPS.map((g) => ({ name: g, ...groupInfo[g], items: videos.filter((v) => v.group === g) })).filter((g) => g.items.length);
+  // The featured film gets its own frame at the top, so it isn't repeated in its group's grid.
+  const featured = videos.find((v) => v.featured);
+  const groups = VIDEO_GROUPS.map((g) => ({ name: g, ...groupInfo[g], items: videos.filter((v) => v.group === g && v !== featured) })).filter((g) => g.items.length);
 
-  const frames = [{ id: "f-video-intro", label: "Overview" }, ...groups.map((g) => ({ id: g.id, label: g.name })), { id: "f-cta", label: "Start a project" }];
+  const frames = [
+    { id: "f-video-intro", label: "Overview" },
+    ...(featured ? [{ id: "f-featured", label: "Featured film" }] : []),
+    ...groups.map((g) => ({ id: g.id, label: g.name })),
+    { id: "f-cta", label: "Start a project" },
+  ];
+  const abs = (u: string) => (u.startsWith("http") ? u : `${siteUrl}${u}`);
 
   const jsonLd = [
     {
@@ -49,8 +57,11 @@ export default async function VideoPage() {
             "@type": "VideoObject",
             name: v.title,
             description: v.description || `${v.group} — ${v.category}`,
-            thumbnailUrl: `${siteUrl}${thumbPath(v.driveId)}`,
-            embedUrl: driveEmbed(v.driveId),
+            ...(v.src
+              ? { contentUrl: abs(v.src), thumbnailUrl: v.poster ? abs(v.poster) : undefined }
+              : { thumbnailUrl: `${siteUrl}${thumbPath(v.driveId)}`, embedUrl: driveEmbed(v.driveId) }),
+            ...(v.duration ? { duration: v.duration } : {}),
+            ...(v.uploadDate ? { uploadDate: v.uploadDate } : {}),
             genre: v.group,
             creator: { "@type": "Person", name: site.name },
           },
@@ -79,12 +90,25 @@ export default async function VideoPage() {
             I direct, generate and edit video across AI films, ad spots and short-form reels — from storyboard and grade to sound and final cut.
           </p>
           <div className="jump">
+            {featured && <a className="btn" href="#f-featured">Featured film</a>}
             {groups.map((g) => (
               <a key={g.id} className="btn" href={`#${g.id}`}>{g.name}<span className="mono" style={{ color: "var(--ink-3)" }}>{String(g.items.length).padStart(2, "0")}</span></a>
             ))}
           </div>
         </div>
       </Frame>
+
+      {featured && (
+        <Frame id="f-featured" label="Featured film — Prototype">
+          <div className="fin">
+            <div className="fhead rv">
+              <div><div className="kicker"><b>★</b> Featured · {featured.category}</div><h2>{featured.title}</h2></div>
+              <p>{featured.description}</p>
+            </div>
+            <div className="rv"><Player v={featured} big /></div>
+          </div>
+        </Frame>
+      )}
 
       {groups.map((g, i) => (
         <Frame key={g.id} id={g.id} label={`${g.name} — Prototype`}>

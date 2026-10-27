@@ -85,7 +85,7 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
               <tr key={v.id}>
                 <td><b>{v.title}</b></td><td>{v.group}</td><td>{v.category}</td><td>{v.order}</td>
                 <td><div className="actions">
-                  <a className="sbtn" href={`https://drive.google.com/file/d/${v.driveId}/view`} target="_blank" rel="noopener">Open</a>
+                  <a className="sbtn" href={v.src || `https://drive.google.com/file/d/${v.driveId}/view`} target="_blank" rel="noopener">Open</a>
                   <Link className="sbtn" href={`/admin/videos/${v.id}`}>Edit</Link>
                   <form action={deleteVideo}><input type="hidden" name="id" value={v.id} /><ConfirmButton message={`Delete “${v.title}”?`}>Delete</ConfirmButton></form>
                 </div></td>
