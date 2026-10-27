@@ -1,0 +1,26 @@
+{
+  "name": "Abdul Moiz Ghani",
+  "short": "Abdul Moiz",
+  "role": "UI/UX Designer & Developer",
+  "location": "Karachi, PK",
+  "timezone": "Asia/Karachi",
+  "email": "abdulmoizghani500@gmail.com",
+  "whatsapp": "923172327487",
+  "phoneDisplay": "+92 317 2327487",
+  "linkedin": "https://www.linkedin.com/in/abdulmoizghani",
+  "dribbble": "https://dribbble.com/ABDUL_MOIZ_GHANI50",
+  "photo": "https://abdulmoizghani.vercel.app/assets/abdul-orange-hero-CjG2GCzS.png",
+  "current": "Houstonopolis",
+  "currentSince": "Jul 2026",
+  "lede": "UI/UX designer & developer turning complex ideas into precise, high‑performing digital experiences — from first wireframe to final build.",
+  "description": "Abdul Moiz Ghani is a UI/UX designer and developer in Karachi with 4+ years across product design, Webflow, WordPress, Shopify, the MERN stack and video editing.",
+  "about": "With more than four years across full‑stack MERN development, UI/UX and code/no‑code platforms, I connect business goals to interfaces that feel clear, useful and alive.",
+  "education": {
+    "degree": "Bachelor of Computer Science",
+    "school": "UBIT · University of Karachi",
+    "years": "2022–2025",
+    "cgpa": "3.02"
+  },
+  "stack": ["Figma", "Webflow", "React", "MERN", "WordPress", "Shopify", "Framer"],
+  "skills": ["Figma", "Webflow", "MERN Stack", "Product Design", "WordPress", "React JS", "Shopify", "Bubble.io", "Framer", "UX Research", "GoHighLevel", "JavaScript"]
+}

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AM Logo Exploration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf9;--surface:#fff;--surface-2:#f2f1ee;--line:#e7e5e4;--ink:#0c0a09;--ink-2:#57534e;--ink-3:#a8a29e;--accent:#ff5b14;--accent-soft:#fff1ea;--pad:clamp(16px,3.5vw,48px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0a09;--surface:#151311;--surface-2:#1c1a17;--line:#292524;--ink:#fafaf9;--ink-2:#a8a29e;--ink-3:#6f6a64;--accent-soft:#2a1609}}
+:root[data-theme="dark"]{--bg:#0c0a09;--surface:#151311;--surface-2:#1c1a17;--line:#292524;--ink:#fafaf9;--ink-2:#a8a29e;--ink-3:#6f6a64;--accent-soft:#2a1609}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Geist",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:"Geist Mono",monospace;font-size:12px;text-transform:uppercase;letter-spacing:.02em}
+header{padding:64px 0 40px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+header .mono{color:var(--accent);display:block;margin-bottom:14px}
+h1{font-size:clamp(40px,6vw,80px);font-weight:500;letter-spacing:-.05em;line-height:1}
+header p{max-width:420px;color:var(--ink-2)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding-bottom:80px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+.stage{display:grid;grid-template-columns:1.4fr 1fr;min-height:300px}
+.light,.dark{display:grid;place-items:center;padding:40px}
+.light{background:#fafaf9;color:#0c0a09}
+.dark{background:#0c0a09;color:#fafaf9}
+.light svg{width:min(240px,80%);height:auto;max-height:180px}
+.dark svg{width:min(150px,80%);height:auto;max-height:130px}
+.sizes{display:flex;align-items:center;gap:18px;padding:16px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface-2);color:var(--ink)}
+.sizes .mono{color:var(--ink-3);margin-right:auto}
+.tile{display:grid;place-items:center;border-radius:22%;background:#0c0a09;color:#fafaf9}
+.tile svg{width:62%;height:62%}
+.info{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.title .n{color:var(--ink-3)}
+.title h2{font-size:24px;font-weight:500;letter-spacing:-.035em}
+.pick{font-size:12px;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:999px}
+.info p{color:var(--ink-2);font-size:15px}
+.use{font-size:13px;color:var(--ink-3)}
+.dl{display:flex;gap:8px;margin-top:auto;padding-top:10px;flex-wrap:wrap}
+.dl button{height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:500 13px "Geist",sans-serif;cursor:pointer;transition:border-color .2s,background .2s}
+.dl button:hover{border-color:var(--ink)}
+.dl button.main{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.dl button.main:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.palette{display:flex;gap:12px;flex-wrap:wrap;padding-bottom:80px}
+.sw{flex:1;min-width:150px;border-radius:18px;border:1px solid var(--line);overflow:hidden;background:var(--surface)}
+.sw div{height:90px}
+.sw p{padding:12px 14px;font-size:14px}
+.sw span{display:block;color:var(--ink-3)}
+h3{font-size:28px;font-weight:500;letter-spacing:-.04em;margin-bottom:20px}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+@media (max-width:520px){.stage{grid-template-columns:1fr}.light,.dark{padding:32px}.sizes{gap:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div><span class="mono">Brand identity · Exploration 01</span><h1>Abdul Moiz —<br>logo directions</h1></div>
+    <p>Six directions built around the AM monogram and the orange full stop. Each is drawn as clean vector, tested on light and dark, and down to favicon size.</p>
+  </header>
+  <div class="grid" id="grid"></div>
+
+  <h3>Brand colours</h3>
+  <div class="palette">
+    <div class="sw"><div style="background:#0c0a09"></div><p>Ink<span class="mono">#0C0A09</span></p></div>
+    <div class="sw"><div style="background:#ff5b14"></div><p>Signal orange<span class="mono">#FF5B14</span></p></div>
+    <div class="sw"><div style="background:#fafaf9"></div><p>Paper<span class="mono">#FAFAF9</span></p></div>
+    <div class="sw"><div style="background:#a8a29e"></div><p>Stone<span class="mono">#A8A29E</span></p></div>
+  </div>
+</div>
+
+<script>
+const OR = "#ff5b14";
+// Every mark uses currentColor for ink, so one drawing works on light and dark backgrounds.
+const MONO = `<path d="M14 100 L37 20 L60 100 L60 20 L83 68 L106 20 L106 100 M27 72 H47" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>`;
+
+function pixelDots(){
+  const A = [".#.","#.#","###","#.#","#.#"], M = ["#...#","##.##","#.#.#","#...#","#...#"];
+  let out = "";
+  for(let r=0;r<5;r++){
+    const row = A[r] + "." + M[r];
+    [...row].forEach((c,i)=>{
+      const on = c==="#";
+      out += `<circle cx="${8+i*12}" cy="${8+r*12}" r="${on?4.6:2}" fill="currentColor" opacity="${on?1:.18}"/>`;
+    });
+  }
+  return out + `<circle cx="${8+9*12+2}" cy="${8+4*12}" r="4.6" fill="${OR}"/>`;
+}
+
+const logos = [
+  {
+    name:"Monoline", pick:true,
+    note:"A and M drawn as one continuous line — like a single pen stroke from wireframe to build. The orange full stop is the signature: the idea, finished.",
+    use:"Primary logo · website header · social avatar",
+    mark:`<svg viewBox="0 0 134 120" xmlns="http://www.w3.org/2000/svg">${MONO}<circle cx="123" cy="100" r="7.5" fill="${OR}"/></svg>`,
+    icon:`<svg viewBox="0 0 134 120" xmlns="http://www.w3.org/2000/svg">${MONO.replace('stroke-width="10"','stroke-width="13"')}<circle cx="123" cy="100" r="9" fill="${OR}"/></svg>`
+  },
+  {
+    name:"Pixel grid",
+    note:"The monogram set on a dot grid — a nod to design systems, spacing and pixel-precision. Quiet inactive dots hint at the grid behind every layout.",
+    use:"Secondary mark · loaders · patterns & merch",
+    mark:`<svg viewBox="0 0 128 64" xmlns="http://www.w3.org/2000/svg">${pixelDots()}</svg>`,
+    icon:`<svg viewBox="0 0 128 64" xmlns="http://www.w3.org/2000/svg">${pixelDots()}</svg>`
+  },
+  {
+    name:"Selection frame",
+    note:"The monogram inside a selected Figma frame with handles and a cursor. It says “UI/UX designer” instantly to any client who has ever opened a design file.",
+    use:"Portfolio intro · Dribbble / Behance · proposals",
+    mark:`<svg viewBox="0 0 150 124" xmlns="http://www.w3.org/2000/svg">
+      <text x="16" y="14" font-family="Geist Mono, monospace" font-size="8.5" fill="${OR}">Abdul Moiz</text>
+      <rect x="16" y="22" width="112" height="80" fill="none" stroke="${OR}" stroke-width="1.6"/>
+      ${[[16,22],[128,22],[16,102],[128,102]].map(([x,y])=>`<rect x="${x-4}" y="${y-4}" width="8" height="8" fill="#fff" stroke="${OR}" stroke-width="1.6"/>`).join("")}
+      <g transform="translate(72 62) scale(.6) translate(-60 -60)">${MONO.replace('stroke-width="10"','stroke-width="13"')}</g>
+      <path d="M120 96 L120 120 L126 114 L131 123 L135 121 L130 112 L138 112 Z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" opacity=".95"/>
+    </svg>`,
+    icon:`<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="10" width="100" height="100" fill="none" stroke="${OR}" stroke-width="5"/>
+      ${[[10,10],[110,10],[10,110],[110,110]].map(([x,y])=>`<rect x="${x-9}" y="${y-9}" width="18" height="18" fill="${OR}"/>`).join("")}
+      <g transform="translate(60 60) scale(.6) translate(-60 -60)">${MONO.replace('stroke-width="10"','stroke-width="16"')}</g>
+    </svg>`
+  },
+  {
+    name:"Geometric",
+    note:"Solid, architectural letterforms: a sharp Λ for design and an orange M for development. Bold enough to work tiny, on video watermarks and stamped on merch.",
+    use:"Favicon · video watermark · stickers",
+    mark:`<svg viewBox="0 0 130 120" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 100 L38 20 L68 100 H52 L38 62 L24 100 Z" fill="currentColor"/>
+      <path d="M74 100 V20 H86 L98 46 L110 20 H122 V100 H108 V56 L98 76 L88 56 V100 Z" fill="${OR}"/>
+    </svg>`,
+    icon:`<svg viewBox="0 0 130 120" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 100 L38 20 L68 100 H52 L38 62 L24 100 Z" fill="currentColor"/>
+      <path d="M74 100 V20 H86 L98 46 L110 20 H122 V100 H108 V56 L98 76 L88 56 V100 Z" fill="${OR}"/>
+    </svg>`
+  },
+  {
+    name:"Wordmark",
+    note:"Your full name, set tight and lowercase in a modern grotesk, finished with the orange full stop. Confident and editorial — no icon needed.",
+    use:"Email signature · invoices · CV header",
+    mark:`<svg viewBox="0 0 300 70" xmlns="http://www.w3.org/2000/svg">
+      <text x="2" y="50" font-family="Geist, system-ui, sans-serif" font-weight="600" font-size="52" letter-spacing="-3" fill="currentColor">abdulmoiz<tspan fill="${OR}">.</tspan></text>
+    </svg>`,
+    icon:`<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <text x="60" y="80" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-weight="600" font-size="74" letter-spacing="-5" fill="currentColor">am<tspan fill="${OR}">.</tspan></text>
+    </svg>`
+  },
+  {
+    name:"Emblem",
+    note:"A circular seal with the monogram at its heart and your three crafts orbiting it — design, develop, direct. Feels like a studio badge.",
+    use:"Footer badge · stickers · rotating site element",
+    mark:`<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+      <defs><path id="ring" d="M80 80 m-60 0 a60 60 0 1 1 120 0 a60 60 0 1 1 -120 0"/></defs>
+      <circle cx="80" cy="80" r="76" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".35"/>
+      <text font-family="Geist Mono, monospace" font-size="10.5" font-weight="500" fill="currentColor" letter-spacing="2"><textPath href="#ring" textLength="372" lengthAdjust="spacing">ABDUL MOIZ ✦ DESIGN · DEVELOP · DIRECT ✦</textPath></text>
+      <circle cx="80" cy="80" r="42" fill="${OR}"/>
+      <g transform="translate(78 80) scale(.42) translate(-60 -60)" color="#fff">${MONO.replace('stroke-width="10"','stroke-width="12"')}</g>
+    </svg>`,
+    icon:`<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="56" fill="${OR}"/>
+      <g transform="translate(58 60) scale(.62) translate(-60 -60)" color="#fff">${MONO.replace('stroke-width="10"','stroke-width="13"')}</g>
+    </svg>`
+  }
+];
+
+document.getElementById("grid").innerHTML = logos.map((l,i)=>`
+  <article class="card">
+    <div class="stage"><div class="light">${l.mark}</div><div class="dark">${l.mark}</div></div>
+    <div class="sizes">
+      <span class="mono">App icon · favicon</span>
+      <div class="tile" style="width:64px;height:64px">${l.icon}</div>
+      <div class="tile" style="width:32px;height:32px">${l.icon}</div>
+      <div class="tile" style="width:20px;height:20px;border-radius:5px">${l.icon}</div>
+    </div>
+    <div class="info">
+      <div class="title"><span class="n mono">0${i+1}</span><h2>${l.name}</h2>${l.pick?'<span class="pick">Recommended</span>':""}</div>
+      <p>${l.note}</p>
+      <span class="use">Best for: ${l.use}</span>
+      <div class="dl">
+        <button class="main" data-i="${i}" data-c="#0c0a09">Download SVG · dark ink</button>
+        <button data-i="${i}" data-c="#fafaf9">SVG · light ink</button>
+        <button data-i="${i}" data-icon="1">Icon SVG</button>
+      </div>
+    </div>
+  </article>`).join("");
+
+// Downloads: bake the ink colour into the SVG so the file works anywhere.
+document.getElementById("grid").addEventListener("click", e=>{
+  const b = e.target.closest("button[data-i]"); if(!b) return;
+  const l = logos[b.dataset.i];
+  let svg = b.dataset.icon
+    ? l.icon.replace("<svg ", `<svg width="512" height="512" `).replace(/(<svg[^>]*>)/, `$1<rect width="100%" height="100%" rx="22%" fill="#0c0a09"/>`).replace(/currentColor/g, "#fafaf9")
+    : l.mark.replace(/currentColor/g, b.dataset.c);
+  if(b.dataset.icon) svg = svg.replace(/viewBox="0 0 (\d+) (\d+)"/, (m,w,h)=>`viewBox="${-w*.19} ${-h*.19} ${w*1.38} ${h*1.38}"`);
+  const url = URL.createObjectURL(new Blob([svg], {type:"image/svg+xml"}));
+  const a = Object.assign(document.createElement("a"), {href:url, download:`abdul-moiz-logo-${l.name.toLowerCase().replace(/\s+/g,"-")}${b.dataset.icon?"-icon":b.dataset.c==="#fafaf9"?"-light":""}.svg`});
+  a.click(); setTimeout(()=>URL.revokeObjectURL(url), 1000);
+});
+</script>
+</body>
+</html>
