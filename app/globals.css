@@ -271,6 +271,10 @@ textarea.input{min-height:110px;resize:vertical}
 .form-msg.ok{color:var(--ok)}
 .form-msg.err{color:var(--err)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.handoff{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.btn.wa{background:#25d366;border-color:#25d366;color:#fff}
+.btn.wa:hover{background:#1ebe5a;border-color:#1ebe5a}
+.form-note{font-size:12px;color:var(--ink-3);text-align:right}
 .divider{display:flex;align-items:center;gap:12px;color:var(--ink-3);font-size:11.5px;margin:22px 0 14px}
 .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
 .inv{display:flex;gap:8px}

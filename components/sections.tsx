@@ -1,4 +1,5 @@
 import { experience, site } from "@/lib/content";
+import { canDeliverContact } from "@/lib/db";
 import { clients, faqs, figmatemplify, outcomes, process, services } from "@/lib/copy";
 import Frame from "./Frame";
 import Clock from "./Clock";
@@ -271,7 +272,8 @@ export function ContactFrame({ number = "09", headingLevel = "h2" }: { number?: 
         <div className="share-dlg rv">
           <div className="dh">Share “Your next project”<span>Invite a collaborator</span></div>
           <div className="db">
-            <ContactForm />
+            {/* Posts to /api/contact when something can receive it; otherwise the form sends via WhatsApp. */}
+            <ContactForm direct={canDeliverContact} />
             <div className="divider">or reach me directly</div>
             <CopyEmail />
             <div className="ways">

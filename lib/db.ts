@@ -5,6 +5,9 @@ const uri = process.env.MONGODB_URI;
 /** True when a MongoDB connection string is configured. Without it the site runs on /data JSON. */
 export const hasDb = Boolean(uri);
 
+/** True when /api/contact has somewhere to deliver enquiries (database inbox and/or Resend email). */
+export const canDeliverContact = hasDb || Boolean(process.env.RESEND_API_KEY);
+
 type Cache = { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
 // Reuse one connection across hot reloads and requests.
 const g = globalThis as unknown as { _mongoose?: Cache };
