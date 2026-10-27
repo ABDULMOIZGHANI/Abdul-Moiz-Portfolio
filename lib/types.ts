@@ -30,6 +30,8 @@ export type Video = {
   featured?: boolean;
   /** Portrait (9:16) video — shown in a tall player row so it isn't cropped. */
   vertical?: boolean;
+  /** The file is 16:9 with the portrait video centred between black bars — the player zooms in to hide them. */
+  pillarbox?: boolean;
   /** ISO 8601 duration (e.g. PT55S) and publish date, for Google's video results. */
   duration?: string;
   uploadDate?: string;

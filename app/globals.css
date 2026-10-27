@@ -393,6 +393,9 @@ textarea.input{min-height:110px;resize:vertical}
 .cta-band p{color:var(--ink-2);margin-top:10px;max-width:520px}
 .cta-band .ctas{margin-top:0}
 .vstack{display:grid;gap:40px}
+/* Portrait video baked into a 16:9 file (black bars left and right): render Drive's player at 16:9 height-for-height
+   and centre it, so only the middle 9:16 strip — the real video — shows inside the clipped box. */
+.player.crop iframe{left:50%;width:316%;max-width:none;transform:translateX(-50%)}
 .player video{position:absolute;inset:0;width:100%;height:100%;background:#000;object-fit:contain}
 .player.big{aspect-ratio:16/9;border-radius:10px;box-shadow:0 30px 60px -30px #00000066}
 .player.big .pb{height:48px;padding:0 20px 0 16px;font-size:14px}

@@ -20,7 +20,7 @@ const Project = mongoose.model("Project", new mongoose.Schema({
 }, { timestamps: true }));
 const Video = mongoose.model("Video", new mongoose.Schema({
   group: String, title: String, category: String, driveId: String, src: String, poster: String,
-  featured: Boolean, vertical: Boolean, duration: String, uploadDate: String, description: String, order: Number,
+  featured: Boolean, vertical: Boolean, pillarbox: Boolean, duration: String, uploadDate: String, description: String, order: Number,
 }, { timestamps: true }));
 
 await mongoose.connect(uri, { serverSelectionTimeoutMS: 10000 });

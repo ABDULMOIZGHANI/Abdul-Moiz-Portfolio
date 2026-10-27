@@ -39,6 +39,7 @@ const toVideo = (d: any, i = 0): Video => ({
   poster: d.poster || undefined,
   featured: Boolean(d.featured),
   vertical: Boolean(d.vertical),
+  pillarbox: Boolean(d.pillarbox),
   duration: d.duration || undefined,
   uploadDate: d.uploadDate || undefined,
   description: d.description ?? "",

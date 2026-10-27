@@ -19,7 +19,7 @@ export function Player({ v, big }: { v: Video; big?: boolean }) {
 
   if (on) {
     return (
-      <div className={`player${big ? " big" : ""}`}>
+      <div className={`player${big ? " big" : ""}${v.pillarbox ? " crop" : ""}`}>
         {v.src ? (
           <video ref={videoRef} controls playsInline preload="auto" poster={v.poster} title={v.title}>
             <source src={v.src} type="video/mp4" />
@@ -50,6 +50,10 @@ function Grid({ videos, tall }: { videos: Video[]; tall?: boolean }) {
           <Player v={v} />
           <h3>{v.title}</h3>
           <p>{v.description}</p>
+          {/* The cropped player hides the edges of Drive's control bar, so offer the full player too. */}
+          {v.pillarbox && v.driveId && (
+            <a className="vlink" href={`https://drive.google.com/file/d/${v.driveId}/view`} target="_blank" rel="noopener">Open full player ↗</a>
+          )}
         </article>
       ))}
     </div>

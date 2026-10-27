@@ -57,6 +57,7 @@ export function VideoForm({ v }: { v?: Video | null }) {
       </div>
       <div className="checks">
         <label><input type="checkbox" name="vertical" defaultChecked={v?.vertical} />Portrait video (9:16)</label>
+        <label title="Use when the file is 16:9 with the portrait video between black bars"><input type="checkbox" name="pillarbox" defaultChecked={v?.pillarbox} />Black bars baked in (crop)</label>
         <label><input type="checkbox" name="featured" defaultChecked={v?.featured} />Feature at the top of the video page</label>
       </div>
       <div className="field"><label htmlFor="description">Description</label><textarea id="description" name="description" className="input" style={{ minHeight: 80 }} defaultValue={v?.description} /></div>
