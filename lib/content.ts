@@ -8,7 +8,10 @@ import type { Experience, Filter, Message, Project, Video, VideoGroup } from "@/
 
 export const site = siteData;
 export const experience = experienceData as Experience[];
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
+// Public site address for canonical links, sitemap and social cards. On Vercel, fall back to the
+// project's production domain so SEO links never point at localhost when the env var is missing.
+const vercelUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || vercelUrl || "http://localhost:3000").replace(/\/$/, "");
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const toProject = (d: any, i = 0): Project => ({
