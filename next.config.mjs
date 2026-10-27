@@ -1,3 +1,7 @@
+import { fileURLToPath } from "node:url";
+
+const root = fileURLToPath(new URL(".", import.meta.url));
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Self-contained server (server.js + minimal node_modules) that cPanel's "Setup Node.js App" can run.
@@ -10,6 +14,11 @@ const nextConfig = {
   },
   eslint: { ignoreDuringBuilds: true },
   poweredByHeader: false,
+  // Next 15.5 fails to apply tsconfig's "@/*" path on Windows builds, so define the alias for webpack directly.
+  webpack(config) {
+    config.resolve.alias = { ...config.resolve.alias, "@": root };
+    return config;
+  },
 };
 
 export default nextConfig;
