@@ -4,12 +4,11 @@ import Frame from "./Frame";
 import Clock from "./Clock";
 import MultiCursor from "./MultiCursor";
 import { ContactForm, CopyEmail } from "./Contact";
+import SkillBoard from "./SkillBoard";
 import { CapIcon, CodeIcon, PenIcon, VideoIcon } from "./icons";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 const serviceIcons = { Design: PenIcon, Develop: CodeIcon, Video: VideoIcon } as const;
-const noteColors = ["#fde68a", "#fbcfe8", "#bbf7d0", "#bfdbfe", "#ddd6fe", "#fed7aa"];
-const tilt = [-2.5, 1.8, -1.2, 2.4, -1.8, 1.1, 2, -2.2, 1.4, -1, 2.6, -1.6];
 
 /* ---------- landing hero ---------- */
 export function HeroFrame({ projects, videos }: { projects: number; videos: number }) {
@@ -185,12 +184,7 @@ export function AboutFrame({ number = "07" }: { number?: string }) {
               <div><b>{site.education.degree}</b><span>{site.education.school} · {site.education.years} · CGPA {site.education.cgpa}</span></div>
             </div>
           </div>
-          <div className="board rv">
-            <span className="board-l">Skills — FigJam board</span>
-            {site.skills.map((s, i) => (
-              <div key={s} className="note" style={{ background: noteColors[i % noteColors.length], ["--r" as string]: `${tilt[i % tilt.length]}deg` }}>{s}</div>
-            ))}
-          </div>
+          <SkillBoard skills={site.skills} />
         </div>
       </div>
     </Frame>
