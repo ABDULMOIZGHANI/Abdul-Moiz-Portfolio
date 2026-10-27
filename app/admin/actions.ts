@@ -95,6 +95,7 @@ export async function saveVideo(form: FormData) {
     src: str(form, "src"),
     poster: str(form, "poster"),
     featured: form.get("featured") === "on",
+    vertical: form.get("vertical") === "on",
     duration: str(form, "duration"),
     uploadDate: str(form, "uploadDate"),
     description: str(form, "description"),

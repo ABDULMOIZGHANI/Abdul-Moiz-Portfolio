@@ -28,6 +28,8 @@ export type Video = {
   poster?: string;
   /** Shown large at the top of the video page. */
   featured?: boolean;
+  /** Portrait (9:16) video — shown in a tall player row so it isn't cropped. */
+  vertical?: boolean;
   /** ISO 8601 duration (e.g. PT55S) and publish date, for Google's video results. */
   duration?: string;
   uploadDate?: string;

@@ -26,6 +26,7 @@ const VideoSchema = new Schema(
     src: { type: String, default: "", trim: true },
     poster: { type: String, default: "", trim: true },
     featured: { type: Boolean, default: false },
+    vertical: { type: Boolean, default: false },
     duration: { type: String, default: "" },
     uploadDate: { type: String, default: "" },
     description: { type: String, default: "" },

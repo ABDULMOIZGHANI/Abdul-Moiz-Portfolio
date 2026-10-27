@@ -388,6 +388,7 @@ textarea.input{min-height:110px;resize:vertical}
 .cta-band h2{font-size:clamp(28px,4cqi,44px)}
 .cta-band p{color:var(--ink-2);margin-top:10px;max-width:520px}
 .cta-band .ctas{margin-top:0}
+.vstack{display:grid;gap:40px}
 .player video{position:absolute;inset:0;width:100%;height:100%;background:#000;object-fit:contain}
 .player.big{aspect-ratio:16/9;border-radius:10px;box-shadow:0 30px 60px -30px #00000066}
 .player.big .pb{height:48px;padding:0 20px 0 16px;font-size:14px}

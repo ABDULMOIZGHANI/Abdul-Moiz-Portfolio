@@ -55,7 +55,10 @@ export function VideoForm({ v }: { v?: Video | null }) {
         <div className="field"><label htmlFor="duration">Duration (optional)</label><input id="duration" name="duration" className="input" defaultValue={v?.duration} placeholder="PT55S = 55 seconds, PT1M30S = 1:30" /></div>
         <div className="field"><label htmlFor="uploadDate">Published date (optional)</label><input id="uploadDate" name="uploadDate" type="date" className="input" defaultValue={v?.uploadDate} /></div>
       </div>
-      <div className="checks"><label><input type="checkbox" name="featured" defaultChecked={v?.featured} />Feature at the top of the video page</label></div>
+      <div className="checks">
+        <label><input type="checkbox" name="vertical" defaultChecked={v?.vertical} />Portrait video (9:16)</label>
+        <label><input type="checkbox" name="featured" defaultChecked={v?.featured} />Feature at the top of the video page</label>
+      </div>
       <div className="field"><label htmlFor="description">Description</label><textarea id="description" name="description" className="input" style={{ minHeight: 80 }} defaultValue={v?.description} /></div>
       <div className="checks"><button className="btn pri" type="submit">Save video</button><Link className="btn" href="/admin">Cancel</Link></div>
     </form>

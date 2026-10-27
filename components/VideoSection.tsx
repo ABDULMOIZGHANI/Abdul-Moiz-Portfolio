@@ -42,7 +42,7 @@ export function Player({ v, big }: { v: Video; big?: boolean }) {
   );
 }
 
-export default function VideoGrid({ videos, tall }: { videos: Video[]; tall?: boolean }) {
+function Grid({ videos, tall }: { videos: Video[]; tall?: boolean }) {
   return (
     <div className={`vgrid${tall ? " tall" : ""}`}>
       {videos.map((v) => (
@@ -52,6 +52,19 @@ export default function VideoGrid({ videos, tall }: { videos: Video[]; tall?: bo
           <p>{v.description}</p>
         </article>
       ))}
+    </div>
+  );
+}
+
+/** Landscape videos in a wide grid, portrait ones in their own row of tall players (so neither gets cropped). */
+export default function VideoGrid({ videos, tall }: { videos: Video[]; tall?: boolean }) {
+  if (tall) return <Grid videos={videos} tall />;
+  const wide = videos.filter((v) => !v.vertical);
+  const portrait = videos.filter((v) => v.vertical);
+  return (
+    <div className="vstack">
+      {wide.length > 0 && <Grid videos={wide} />}
+      {portrait.length > 0 && <Grid videos={portrait} tall />}
     </div>
   );
 }
