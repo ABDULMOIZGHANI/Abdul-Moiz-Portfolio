@@ -198,11 +198,15 @@ h1{font-family:var(--display);font-size:clamp(36px,7.4cqi,84px);max-width:16ch;f
 .variant p{color:var(--ink-2);font-size:13.5px;flex:1}
 
 /* ---------- video ---------- */
-.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.vgrid.tall{grid-template-columns:repeat(3,minmax(0,250px))}
+/* Google Drive's player needs roughly 300px of width for its control bar, so columns never get narrower than that:
+   the grid drops to fewer, wider columns instead of squeezing players (and cutting off the controls). */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:28px 24px}
+.vgrid.tall{grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr))}
 .vpanel{animation:insin .4s var(--ease)}
 .player{position:relative;aspect-ratio:16/10;background:#0c0a09;overflow:hidden;cursor:pointer;border-radius:4px;display:block;width:100%;text-align:left}
-.vgrid.tall .player{aspect-ratio:9/14}
+.vgrid.tall .player{aspect-ratio:9/16}
+/* On a single-column phone layout, keep a portrait player a sensible size instead of full-bleed. */
+.vgrid.tall .vid{max-width:380px;width:100%}
 .player::before{content:"";position:absolute;inset:0;background:radial-gradient(110% 80% at 15% 0%,#ff5b1440,transparent 60%),radial-gradient(90% 90% at 100% 100%,#ffffff10,transparent 60%)}
 .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .player .ov{position:absolute;inset:0;padding:12px;display:flex;flex-direction:column;justify-content:space-between;color:#e7e5e4}
@@ -483,8 +487,6 @@ html.js .rv.in{opacity:1;transform:none}
   .cs-body{grid-template-columns:1fr;gap:12px}
 }
 @container (max-width:700px){
-  .vgrid{grid-template-columns:1fr 1fr}
-  .vgrid.tall{grid-template-columns:repeat(3,1fr)}
   .vh li{grid-template-columns:28px 1fr auto}
   .vh .when{grid-column:2/4}
   .vh .info{grid-column:2/3}
@@ -502,9 +504,6 @@ html.js .rv.in{opacity:1;transform:none}
   .cs-meta div:nth-child(-n+2){border-bottom:1px solid var(--line)}
 }
 @container (max-width:480px){
-  .vgrid{grid-template-columns:1fr}
-  .vgrid.tall{grid-template-columns:1fr 1fr;gap:14px}
-  .vgrid.tall .vid p{display:none}
   .stats{grid-template-columns:1fr 1fr}
   .stats div{padding:16px 0 16px 14px}
   .stats div:nth-child(odd){border-left:0;padding-left:0}
