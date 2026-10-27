@@ -3,7 +3,7 @@ import { getProjects, getVideos, site, siteUrl } from "@/lib/content";
 import SiteShell from "@/components/SiteShell";
 import Frame from "@/components/Frame";
 import WorkGrid from "@/components/WorkGrid";
-import { CtaFrame, ProcessFrame, ServicesFrame } from "@/components/sections";
+import { CtaFrame, ProcessFrame, ProductFrame, ServicesFrame } from "@/components/sections";
 
 export const revalidate = 3600;
 
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 
 const frames = [
   { id: "f-work-intro", label: "Overview" },
+  { id: "f-product", label: "FigmaTemplify" },
   { id: "f-projects", label: "All projects" },
   { id: "f-services", label: "Services" },
   { id: "f-process", label: "Process" },
@@ -81,6 +82,8 @@ export default async function WorkPage() {
           </dl>
         </div>
       </Frame>
+
+      <ProductFrame />
 
       <Frame id="f-projects" label={`All projects — ${projects.length}`}>
         <div className="fin">

@@ -1,106 +1,171 @@
 [
   {
+    "slug": "figmatemplify",
+    "title": "FigmaTemplify",
+    "category": "Free Figma template library · My product",
+    "tags": [
+      "Founder",
+      "UI/UX",
+      "React",
+      "SEO"
+    ],
+    "filters": [
+      "web",
+      "product",
+      "dev"
+    ],
+    "image": "https://figmatemplify.net/assets/og-cover-Cbo7gsC8.jpg",
+    "url": "https://figmatemplify.net/",
+    "description": "My own product: a free library of Figma templates — landing pages, hero sections, footers and app UIs. Preview in Figma, download the .fig file, no sign-up.",
+    "content": "FigmaTemplify is a product I designed, built and run myself: a free library of Figma templates for landing pages, hero sections, footers and mobile app UIs. Designers, freelancers, students and developers can preview every template live in Figma and download the .fig file — no sign-up and no account needed.\n\nI took it end to end: the brand (a teal-to-plum gradient with Space Grotesk headlines), the template library with category filters and sorting, individual template pages, a blog with tutorials, and a pricing page for my design services. It's built with React (Vite), Tailwind and shadcn/ui, with pre-rendered pages so search engines can read every template.\n\nEvery template page follows the same SEO-friendly formula: a keyword-led title, the sections it includes, the colour palette with hex codes, who it's for, and the technical details — Auto Layout, neatly named layers, colours as Figma Variables and Dev Mode-ready handoff. Each page also carries structured data and appears in the sitemap.\n\nToday the library has 22 free templates across 15 categories, plus 12 articles and tutorials. It also works as a funnel: the free templates bring in designers and small businesses, and the pricing page turns some of them into design-service clients.",
+    "order": 1,
+    "published": true
+  },
+  {
     "slug": "houstonopolis-creative",
     "title": "Houstonopolis Creative",
     "category": "Real estate platform",
-    "tags": ["UI/UX", "Webflow", "SEO"],
-    "filters": ["web", "dev"],
+    "tags": [
+      "UI/UX",
+      "Webflow",
+      "SEO"
+    ],
+    "filters": [
+      "web",
+      "dev"
+    ],
     "image": "https://abdulmoizghani.vercel.app/assets/houstonopolis-creative-BYBTz8xY.webp",
     "url": "https://houstonopoliscreative.com/",
     "description": "Property platform with dynamic CMS architecture, communities, editorial content and a full technical SEO foundation.",
     "content": "",
-    "order": 1,
+    "order": 2,
     "published": true
   },
   {
     "slug": "centosquare",
     "title": "CentoSquare",
     "category": "Software agency",
-    "tags": ["Product design", "Agency"],
-    "filters": ["web"],
+    "tags": [
+      "Product design",
+      "Agency"
+    ],
+    "filters": [
+      "web"
+    ],
     "image": "https://abdulmoizghani.vercel.app/assets/centosquare-B_6NU_HK.png",
     "url": "https://centosquare.com/",
     "description": "A sleek agency presence built on clear hierarchy, accessibility and consistency across every screen.",
     "content": "",
-    "order": 2,
+    "order": 3,
     "published": true
   },
   {
     "slug": "islami-zone",
     "title": "Islami Zone",
     "category": "Online learning",
-    "tags": ["UI/UX", "MERN"],
-    "filters": ["web", "dev"],
+    "tags": [
+      "UI/UX",
+      "MERN"
+    ],
+    "filters": [
+      "web",
+      "dev"
+    ],
     "image": "https://abdulmoizghani.vercel.app/assets/islami-zone-BISfZLR-.png",
     "url": "https://islamizone.com/",
     "description": "Online Quran learning platform with secure authentication, responsive components and a complete admin dashboard.",
     "content": "",
-    "order": 3,
+    "order": 4,
     "published": true
   },
   {
     "slug": "tlntb-partners",
     "title": "TLNTB Partners",
     "category": "Real estate services",
-    "tags": ["UI/UX", "WordPress"],
-    "filters": ["web", "dev"],
+    "tags": [
+      "UI/UX",
+      "WordPress"
+    ],
+    "filters": [
+      "web",
+      "dev"
+    ],
     "image": "https://abdulmoizghani.vercel.app/assets/tlntb-partners-D2W0z4Dd.png",
     "url": "https://tlntbpartners.com/",
     "description": "A custom WordPress experience shaped for simple navigation, accessible content and cross-browser reliability.",
     "content": "",
-    "order": 4,
+    "order": 5,
     "published": true
   },
   {
     "slug": "clinicx",
     "title": "Clinicx",
     "category": "Healthcare app",
-    "tags": ["Mobile app", "UI/UX"],
-    "filters": ["product"],
+    "tags": [
+      "Mobile app",
+      "UI/UX"
+    ],
+    "filters": [
+      "product"
+    ],
     "image": "https://abdulmoizghani.vercel.app/assets/clinicx-aR2Kcx52.webp",
     "url": "",
     "description": "Book specialists, manage health records, and take video or in-clinic consultations — in one calm mobile experience.",
     "content": "",
-    "order": 5,
+    "order": 6,
     "published": true
   },
   {
     "slug": "tabarru",
     "title": "Tabarru",
     "category": "Analytics dashboard",
-    "tags": ["Dashboard", "Data viz"],
-    "filters": ["product"],
+    "tags": [
+      "Dashboard",
+      "Data viz"
+    ],
+    "filters": [
+      "product"
+    ],
     "image": "https://abdulmoizghani.vercel.app/assets/tabarru-DqecHgjS.png",
     "url": "",
     "description": "Device management, pricing tiers and data visualisation for monitoring performance at a glance.",
     "content": "",
-    "order": 6,
+    "order": 7,
     "published": true
   },
   {
     "slug": "clove-hair-salon",
     "title": "Clove Hair Salon",
     "category": "Salon website",
-    "tags": ["Web design"],
-    "filters": ["web"],
+    "tags": [
+      "Web design"
+    ],
+    "filters": [
+      "web"
+    ],
     "image": "https://abdulmoizghani.vercel.app/assets/clove-hair-salon-BtNJc8k8.png",
     "url": "",
     "description": "Vegan Aveda colour, precision cutting and scalp rituals — presented in a warm, tactile aesthetic.",
     "content": "",
-    "order": 7,
+    "order": 8,
     "published": true
   },
   {
     "slug": "opentrafik",
     "title": "OpenTrafik",
     "category": "Driving-school platform",
-    "tags": ["Web app", "UX"],
-    "filters": ["product"],
+    "tags": [
+      "Web app",
+      "UX"
+    ],
+    "filters": [
+      "product"
+    ],
     "image": "https://abdulmoizghani.vercel.app/assets/opentrafik-B9SJi-sF.png",
     "url": "",
     "description": "Discover Swedish driving schools, track progress and prep for licence exams with interactive roadmaps.",
     "content": "",
-    "order": 8,
+    "order": 9,
     "published": true
   }
 ]

@@ -5,6 +5,25 @@ export const clients = [
   "DotHash", "Total Solution", "CryoChain", "GADRE", "TIARA", "BAY",
 ];
 
+// My own product. Numbers checked against figmatemplify.net's sitemap on 27 Oct 2026 — update as the library grows.
+export const figmatemplify = {
+  url: "https://figmatemplify.net/",
+  image: "https://figmatemplify.net/assets/og-cover-Cbo7gsC8.jpg",
+  caseStudy: "/work/figmatemplify",
+  stats: [
+    { v: "22", k: "Free templates" },
+    { v: "15", k: "Categories" },
+    { v: "12", k: "Articles & tutorials" },
+    { v: "0", k: "Sign-ups needed" },
+  ],
+  points: [
+    "Live Figma preview before you download",
+    "Free .fig files — no account, no email",
+    "Landing pages, hero sections, footers and app UIs for real industries",
+    "Designed, built and SEO-optimised by me, end to end",
+  ],
+};
+
 export const outcomes = [
   { k: "Clarity", t: "Interfaces people understand", d: "Clear hierarchy, honest copy and accessible patterns, so visitors find what they came for and know what to do next." },
   { k: "Speed", t: "One person, design to launch", d: "No hand-off gaps between a designer and a developer. The person who designs it builds it, so the details survive." },

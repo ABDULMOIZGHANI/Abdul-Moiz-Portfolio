@@ -1,5 +1,5 @@
 import { experience, site } from "@/lib/content";
-import { clients, faqs, outcomes, process, services } from "@/lib/copy";
+import { clients, faqs, figmatemplify, outcomes, process, services } from "@/lib/copy";
 import Frame from "./Frame";
 import Clock from "./Clock";
 import MultiCursor from "./MultiCursor";
@@ -116,6 +116,44 @@ export function ServicesFrame({ number = "02", links = true }: { number?: string
               </div>
             );
           })}
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
+/* ---------- my product: FigmaTemplify (in its own brand colours) ---------- */
+export function ProductFrame() {
+  const ft = figmatemplify;
+  return (
+    <Frame id="f-product" label="My product — FigmaTemplify">
+      <div className="fin">
+        <div className="spot rv">
+          <div className="spot-copy">
+            <span className="spot-badge">My product · Free Figma template library</span>
+            <h2 className="spot-h">
+              I also build <span className="spot-grad">FigmaTemplify</span>.
+            </h2>
+            <p className="spot-p">
+              A free library of Figma templates I design, build and run myself. Preview any layout live in Figma,
+              download the .fig file and make it yours — no sign-up needed.
+            </p>
+            <ul className="spot-list">
+              {ft.points.map((p) => <li key={p}>{p}</li>)}
+            </ul>
+            <div className="ctas">
+              <a className="btn spot-btn" href={ft.url} target="_blank" rel="noopener">Visit FigmaTemplify ↗</a>
+              <a className="btn spot-btn-2" href={ft.caseStudy}>Read the case study</a>
+            </div>
+          </div>
+          <a className="spot-shot" href={ft.url} target="_blank" rel="noopener" aria-label="Open figmatemplify.net">
+            <span className="spot-chrome" aria-hidden="true"><i /><i /><i /><b>figmatemplify.net</b></span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={ft.image} alt="FigmaTemplify home page — free Figma templates by a UX designer" loading="lazy" />
+          </a>
+          <dl className="spot-stats">
+            {ft.stats.map((s) => (<div key={s.k}><dt>{s.k}</dt><dd>{s.v}</dd></div>))}
+          </dl>
         </div>
       </div>
     </Frame>

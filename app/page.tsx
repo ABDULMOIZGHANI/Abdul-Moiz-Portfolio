@@ -5,7 +5,7 @@ import Frame from "@/components/Frame";
 import WorkGrid from "@/components/WorkGrid";
 import VideoGrid from "@/components/VideoSection";
 import {
-  AboutFrame, ClientsFrame, ContactFrame, ExperienceFrame, FAQFrame, HeroFrame, OutcomesFrame, ProcessFrame, ServicesFrame, faqJsonLd,
+  AboutFrame, ClientsFrame, ContactFrame, ExperienceFrame, FAQFrame, HeroFrame, OutcomesFrame, ProcessFrame, ProductFrame, ServicesFrame, faqJsonLd,
 } from "@/components/sections";
 
 // Rebuilt at most once an hour (and immediately after admin edits).
@@ -15,6 +15,7 @@ const frames = [
   { id: "f-intro", label: "Intro" },
   { id: "f-why", label: "Why work with me" },
   { id: "f-services", label: "Services" },
+  { id: "f-product", label: "FigmaTemplify" },
   { id: "f-work", label: "Selected work" },
   { id: "f-video", label: "Video highlights" },
   { id: "f-process", label: "Process" },
@@ -66,6 +67,7 @@ export default async function Home() {
       <ClientsFrame />
       <OutcomesFrame />
       <ServicesFrame number="02" />
+      <ProductFrame />
 
       <Frame id="f-work" label="Selected work — Highlights">
         <div className="fin">
